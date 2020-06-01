@@ -1,4 +1,3 @@
-
 export default {
   mode: 'spa',
   /*
@@ -47,7 +46,26 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    proxy: true
   },
+
+  proxy: {
+    '/api/': { target: 'https://svcs.ebay.com/services/search/FindingService/', pathRewrite: { '^/api/': '' }, changeOrigin: true }
+  },
+
+
+  // proxy: {
+  //   '/api': {
+  //     target: 'https://svcs.ebay.com',
+  //     pathRewrite: {
+  //       '^/api': '/'
+  //     }
+  //   }
+  // }
+
+  // proxy: {
+  //   '/api/': 'https://svcs.ebay.com'
+  // },
   /*
   ** Build configuration
   */
